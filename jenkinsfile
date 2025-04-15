@@ -2,20 +2,20 @@ pipeline {
     agent any
     
     tools {
-        terraform 'terraform1.57'
+        terraform 'terraform-jenkins'
     }
 
     stages {
         stage('Git') {
             steps {
-                git branch: 'main',url: 'https://github.com/pranayentc/Terraform-jenkins.git'
+                git branch: 'main', url: 'https://github.com/pranayentc/Terraform-jenkins.git'
             }
         }
         
         stage('terra') {
             steps {
                 sh "terraform -v"
-                dir('/root/.jenkins/workspace/Terraform-With-Jenkins/T-Scripts/') {
+                dir('/root/.jenkins/workspace/Pranay Kanoje/Terraform-jenkins/') {
                     sh "terraform init"    
                     sh "terraform plan"
                     //sh "terraform apply --var-file terraform.tfvars --auto-approve"
