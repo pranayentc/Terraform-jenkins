@@ -15,7 +15,7 @@ pipeline {
         stage('terra') {
             steps {
                 sh "terraform -v"
-                dir('/var/lib/jenkins/workspace/Pranay Kanoje/') {
+                dir('/var/lib/jenkins/workspace/Terraform/') {
                     sh "terraform init"    
                     sh "terraform plan"
                     //sh "terraform apply --var-file terraform.tfvars --auto-approve"
