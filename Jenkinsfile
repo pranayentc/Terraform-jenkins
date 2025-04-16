@@ -19,7 +19,7 @@ pipeline {
                {
                     sh "terraform init"    
                     sh "terraform plan"
-                    //sh "terraform apply --var-file terraform.tfvars --auto-approve"
+                     //sh "terraform apply --var-file terraform.tfvars --auto-approve"
                     sh "terraform destroy --auto-approve"
                 }
             }
