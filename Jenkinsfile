@@ -14,6 +14,7 @@ pipeline {
         
         stage('terra') {
             steps {
+            dir('/var/lib/jenkins/workspace/Terraform/'){
             withCredentials([[aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'AWS', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')]])
                {
                     sh "terraform init"    
@@ -21,7 +22,7 @@ pipeline {
                     //sh "terraform apply --var-file terraform.tfvars --auto-approve"
                     sh "terraform destroy --auto-approve"
                 }
-                
+            }
             }
         }
     }
