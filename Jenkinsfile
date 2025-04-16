@@ -15,7 +15,7 @@ pipeline {
         stage('terra') {
             steps {
             dir('/var/lib/jenkins/workspace/Terraform/'){
-            withCredentials([[aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'AWS', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')]])
+            withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'AWS', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')])
                {
                     sh "terraform init"    
                     sh "terraform plan"
